@@ -3,8 +3,9 @@ import './App.css';
 import { ReactLogo } from './meshes/ReactLogo';
 import { EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 import { Flex, Box } from '@react-three/flex';
-import { Text3D, Helper, OrbitControls } from '@react-three/drei';
-import { BoxHelper } from 'three';
+// import { Text3D, Helper, OrbitControls } from '@react-three/drei';
+import { Text3D, OrbitControls } from '@react-three/drei';
+// import { BoxHelper } from 'three';
 import { Suspense } from 'react';
 import { LoadingUI } from './component/LoadingUI/LoadingUI';
 

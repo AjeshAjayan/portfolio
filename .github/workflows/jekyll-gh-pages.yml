@@ -37,6 +37,16 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install pnpm
+        run: npm install -g @pnpm/exe
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build production site
+        run: pnpm run build
 
   # Deployment job
   deploy:
