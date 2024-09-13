@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Build and Deploy React Site with Vite
 
 on:
   # Runs on pushes targeting the default branch
@@ -26,29 +25,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '20' # or the version you're using
+
       - name: Install pnpm
-        run: npm install -g @pnpm/exe
+        run: npm install -g pnpm
+
       - name: Install dependencies
         run: pnpm install
+
       - name: Build production site
-        run: pnpm run build
+        run: pnpm run build # Adjust this if your build script is named differently
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist' # Adjust this if your build output directory is different
 
   # Deployment job
   deploy:
