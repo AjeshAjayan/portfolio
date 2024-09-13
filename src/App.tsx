@@ -3,11 +3,12 @@ import './App.css';
 import { ReactLogo } from './meshes/ReactLogo';
 import { EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 import { Flex, Box } from '@react-three/flex';
-// import { Text3D, Helper, OrbitControls } from '@react-three/drei';
-import { Text3D, OrbitControls } from '@react-three/drei';
-// import { BoxHelper } from 'three';
+import { Text3D, Helper, OrbitControls } from '@react-three/drei';
+// import { Text3D, OrbitControls } from '@react-three/drei';
+import { BoxHelper } from 'three';
 import { Suspense } from 'react';
 import { LoadingUI } from './component/LoadingUI/LoadingUI';
+import { motion } from "framer-motion-3d"
 
 function App() {
 
@@ -16,6 +17,11 @@ function App() {
       <Suspense fallback={<LoadingUI />}>
         <ambientLight intensity={0.1} />
         <directionalLight color="white" intensity={1} position={[0, 0, 10]} />
+        <mesh>
+          <motion.pointLight color="white" intensity={1} position={[0, 0, 5]} animate={{ x: 2 }} />
+          <Helper type={BoxHelper} args={['royalblue']} />
+
+        </mesh>
         <group rotation={[0, -0.5, -0]}>
           <mesh>
             <Flex centerAnchor
@@ -31,7 +37,9 @@ function App() {
                 </mesh>
               </Box>
               <Box centerAnchor marginTop={1}>
-                <mesh>
+                <motion.mesh whileHover={{ scale: 2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   <Text3D height={0.1} // This controls the depth of the text (thicker for heavier weight)
                     bevelEnabled
                     bevelThickness={0.2} // Adding bevel for a bold effect
@@ -42,8 +50,10 @@ function App() {
                     <meshStandardMaterial color="white" />
                   </Text3D>
                   {/* <Helper type={BoxHelper} args={['royalblue']} /> */}
-                </mesh>
-                <mesh>
+                </motion.mesh>
+                <motion.mesh whileHover={{ scale: 2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   <Text3D height={0.02} // This controls the depth of the text (thicker for heavier weight)
                     bevelEnabled
                     bevelThickness={0.08} // Adding bevel for a bold effect
@@ -54,7 +64,7 @@ function App() {
                     <meshStandardMaterial color="white" />
                   </Text3D>
                   {/* <Helper type={BoxHelper} args={['royalblue']} /> */}
-                </mesh>
+                </motion.mesh>
               </Box>
             </Flex>
             {/* <Helper type={BoxHelper} args={['royalblue']} /> */}
