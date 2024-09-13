@@ -35,8 +35,6 @@ jobs:
           cache: 'npm'
       - name: Install pnpm
         run: npm install -g @pnpm/exe
-        with:
-          cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
       - name: Build
