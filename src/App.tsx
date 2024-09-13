@@ -37,7 +37,7 @@ function App() {
                     bevelThickness={0.2} // Adding bevel for a bold effect
                     bevelSize={0.05}
                     bevelSegments={10}
-                    position={[-7, 0, 0]} castShadow font={'/assets/fonts/Raleway Thin_Regular.json'}>
+                    position={[-7, 0, 0]} castShadow font={'/portfolio/assets/fonts/Raleway Thin_Regular.json'}>
                     Hey! this is in progress
                     <meshStandardMaterial color="white" />
                   </Text3D>
@@ -49,7 +49,7 @@ function App() {
                     bevelThickness={0.08} // Adding bevel for a bold effect
                     bevelSize={0.01}
                     bevelSegments={5}
-                    position={[-7, -2, 0]} castShadow font={'/assets/fonts/Raleway Thin_Regular.json'}>
+                    position={[-7, -2, 0]} castShadow font={'/portfolio/assets/fonts/Raleway Thin_Regular.json'}>
                     zoom                    pan
                     <meshStandardMaterial color="white" />
                   </Text3D>
