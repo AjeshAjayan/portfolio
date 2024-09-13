@@ -34,7 +34,7 @@ jobs:
           node-version: '20' # or the version you're using
 
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: npm install -g @pnpm/exe
 
       - name: Install dependencies
         run: pnpm install
